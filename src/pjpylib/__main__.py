@@ -8,7 +8,7 @@ Why does this file exist, and why __main__? For more info, read:
 
 import sys
 
-from templatelib import runner
+from pjpylib import runner
 
 if __name__ == "__main__":
     sys.exit(runner.main())
