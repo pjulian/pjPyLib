@@ -1,0 +1,6 @@
+[run]
+omit =
+    */__main__.py
+    */runner.py
+
+branch = True
