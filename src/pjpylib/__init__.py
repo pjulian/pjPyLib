@@ -1,1 +1,1 @@
-"""pjPyLib Library."""
+"""Template Library."""
