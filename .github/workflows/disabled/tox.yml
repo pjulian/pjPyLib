@@ -1,4 +1,4 @@
-name: pylint
+name: tox
 
 on:
   pull_request:
@@ -19,7 +19,9 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pylint
-    - name: Analyzing the code with pylint
+        pip install tox
+        pip install pytest pytest-cov pytest-xdist
+        pip install pylint flake8 flake8-docstrings
+    - name: Analyzing code & performing unittests (tox, pylint, flake8, pytest)
       run: |
-        pylint $(git ls-files '*.py')
+        tox -v
