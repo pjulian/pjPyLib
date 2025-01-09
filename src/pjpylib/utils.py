@@ -3,6 +3,8 @@
 import hashlib
 import uuid
 
+FLAKE8_MAX_LINE_LENGTH_TEST = "This line is longer than 80 characters intentionally to check if flake8 pick it up as a failure or not."
+
 
 def simple_uuid() -> str:
     """Return a simple UUID."""
