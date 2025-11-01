@@ -11,33 +11,53 @@ jobs:
   release:
     runs-on: ubuntu-latest
     if: ${{ github.event.pull_request.merged }}
+    strategy:
+      matrix:
+        python-version: ["3.9"]
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v5
       with:
         fetch-depth: 0
         # token: ${{ secrets.ADMIN_TOKEN }}
-        token: ${{ secrets.GH_TOKEN }}
+        # token: ${{ secrets.PJULIAN-PAT-PJPYLIB }}
 
     - name: setup nodejs
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v6
       with:
-        node-version: '16'
+        node-version: 24
 
-    - name: release using semantic-release
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install --user bumpversion
+        echo "`pip install --user bumpversion` Complete."
+
+    - name: Install semantic-release packages
+      run: |
+        npm install @semantic-release/changelog
+        echo "`npm install @semantic-release/changelog` Complete."
+        npm install @semantic-release/exec
+        echo "`npm install @semantic-release/exec` Complete."
+        npm install @semantic-release/git
+        echo "`npm install @semantic-release/git` Complete."
+        npm install @semantic-release/github
+        echo "`npm install @semantic-release/github` Complete."
+
+    - name: Release using semantic-release
       env:
-        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.PJULIAN-PAT-PJPYLIB }}
         # GITHUB_TOKEN: ${{ secrets.ADMIN_TOKEN }}
         # GIT_AUTHOR_NAME: secrets.automation.dev
         # GIT_AUTHOR_EMAIL: secrets.automation.dev@il.ibm.com
         # GIT_COMMITTER_NAME: secrets.automation.dev
         # GIT_COMMITTER_EMAIL: secrets.automation.dev@il.ibm.com
       run: |
-        sudo apt-get update
-        sudo apt-get install python
-        pip install --user bumpversion
-        npm install @semantic-release/changelog
-        npm install @semantic-release/exec
-        npm install @semantic-release/git
-        npm install @semantic-release/github
+        echo "GITHUB_TOKEN: ${GITHUB_TOKEN}"
         npx semantic-release
+        echo "`npx semantic-release` Complete."
