@@ -1,0 +1,24 @@
+[project]
+name = "pjpylib"
+version = "0.0.5"
+description = ""
+authors = [
+    {name = "Philip Julian",email = "pjulian@rackspace.com"}
+]
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+]
+
+[tool.poetry]
+packages = [{include = "pjpylib", from = "src"}]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.semantic_release]
+branch = "master"
+upload_to_pypi = false
+upload_to_release = true
+build_command = "python -m build"

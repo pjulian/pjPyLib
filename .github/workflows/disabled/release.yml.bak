@@ -1,0 +1,38 @@
+name: Releasing with Semantic Release
+
+on:
+  pull_request:
+    branches:
+      - master
+    types:
+      - closed
+
+jobs:
+  release:
+    name: release
+    runs-on: ubuntu-latest
+    # if: ${{ github.event.pull_request.merged }}
+    steps:
+      - id: checkout-step
+        name: Checkout code
+        uses: actions/checkout@v4
+
+      - id: setup-node-step
+        name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - id: install-dependencies-step
+        name: Install dependencies
+        run: npm install
+
+      - id: build-step
+        name: Build package
+        run: npm run build
+
+      - id: semantic-release-step
+        name: Release with Semantic Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: npx semantic-release
