@@ -1,0 +1,36 @@
+name: Release
+
+on:
+  pull_request:
+    branches:
+      - master
+    types:
+      - closed
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Required for semantic-release to analyze commit history
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.9" # Specify your Python version
+
+      - name: Install dependencies
+        run: |
+          pip install poetry # Or your preferred package manager
+          poetry install
+          pip install python-semantic-release
+
+      - name: Semantic Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Provided by GitHub Actions
+          # PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }} # Your PyPI API token
+        run: |
+          poetry -vvv run semantic-release publish
