@@ -15,7 +15,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Required for semantic-release to analyze commit history
+          fetch-depth: 0 # Required for semantic-release to analyze commit history.
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -30,7 +30,7 @@ jobs:
 
       - name: Semantic Release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Provided by GitHub Actions
-          # PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }} # Your PyPI API token
+          GITHUB_TOKEN: ${{ secrets.PJULIAN-PAT-PJPYLIB }} # Your Github PAT.
+          # PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }} # Your PyPI API token.
         run: |
           poetry -vvv run semantic-release publish
