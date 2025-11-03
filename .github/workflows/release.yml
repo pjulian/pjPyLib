@@ -11,11 +11,33 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+    if: ${{ github.event.pull_request.merged }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Required for semantic-release to analyze commit history.
+          token: ${{ secrets.PAT_PJPYLIB }}
+
+      - name: Check Personal Access Token status
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT_PJPYLIB }}
+        run: |
+          GH_TOKEN_LEN=${#GITHUB_TOKEN}
+          echo "GH_TOKEN_LEN: $GH_TOKEN_LEN"
+          echo "PAT_PJPYLIB: ${{ secrets.PAT_PJPYLIB }}"
+          output=$(curl -X GET --write "\n%{http_code}\n" --silent --fail \
+            -H "Content-Type:application/json" \
+            -H "Accept:application/json" \
+            -H "Authorization: token ${GITHUB_TOKEN}" https://api.github.com/user)
+          return_code=$?
+          echo "RETURN_CODE: $return_code"
+          if [ 0 -eq $return_code ]; then
+            echo "PAT is valid and has access."
+          else
+            echo "PAT is expired or has no access. Failure: code=$output"
+            exit 1
+          fi
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -30,7 +52,7 @@ jobs:
 
       - name: Semantic Release
         env:
-          GITHUB_TOKEN: ${{ secrets.PJULIAN-PAT-PJPYLIB }}
+          GITHUB_TOKEN: ${{ secrets.PAT_PJPYLIB }}
         run: |
           echo "GITHUB_TOKEN: ${GITHUB_TOKEN}"
           poetry run semantic-release publish
