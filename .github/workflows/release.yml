@@ -30,7 +30,8 @@ jobs:
 
       - name: Semantic Release
         env:
-          GITHUB_TOKEN: ${{ secrets.PJULIAN-PAT-PJPYLIB }} # Your Github PAT.
+          GH_TOKEN: ${{ secrets.PJULIAN-PAT-PJPYLIB }} # Your Github PAT.
           # PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }} # Your PyPI API token.
         run: |
-          poetry -vvv run semantic-release publish
+          echo "GH_TOKEN: ${GH_TOKEN}"
+          poetry run semantic-release publish
