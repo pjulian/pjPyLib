@@ -55,4 +55,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PAT_PJPYLIB }}
         run: |
           echo "GITHUB_TOKEN: ${GITHUB_TOKEN}"
-          poetry run semantic-release publish
+          poetry run semantic-release --branches master --tag-format "\${version}" publish
