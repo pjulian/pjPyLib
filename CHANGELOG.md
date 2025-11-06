@@ -1,6 +1,19 @@
 # CHANGELOG
 
 
+## v0.1.2 (2025-11-06)
+
+### Bug Fixes
+
+- **refactor**: Clean up new release automation.
+  ([`9a2134f`](https://github.com/pjulian/pjPyLib/commit/9a2134fb95403697b356292be40f54cb91b5869c))
+
+### Refactoring
+
+- Clean up new release automation.
+  ([`48acb03`](https://github.com/pjulian/pjPyLib/commit/48acb03c0bc0ac7f7dfa36ee82e88d7a43d49c6d))
+
+
 ## v0.1.1 (2025-11-06)
 
 ### Bug Fixes
