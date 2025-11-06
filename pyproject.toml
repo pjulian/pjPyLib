@@ -13,7 +13,7 @@ dev = [
 ]
 
 [tool.semantic_release]
-commit_parser = "conventional"
+commit_parser = "angular"
 version_toml = ["pyproject.toml:project.version"]
 allow_zero_version = true
 tag_format = "{version}"
