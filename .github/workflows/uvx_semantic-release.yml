@@ -38,5 +38,5 @@ jobs:
             uvx --from="python-semantic-release@9.21.1" semantic-release "$@"
           }
 
-          sr version
-          sr publish
+          sr version -vvv
+          sr publish -vvv
