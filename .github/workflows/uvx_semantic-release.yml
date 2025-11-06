@@ -1,9 +1,6 @@
-name: Release
+# Ref. https://github.com/DataLabTechTV/datalab/blob/main/.github/workflows/release.yml
 
-# on:
-#   push:
-#     branches:
-#       - master
+name: Release
 
 on:
   pull_request:
@@ -36,7 +33,7 @@ jobs:
           GH_TOKEN: ${{ secrets.PAT_PJPYLIB }}
         run: | #shell
           sr() {
-            uvx --from="python-semantic-release@9.21.1" semantic-release -vv "$@"
+            uvx --from="python-semantic-release@9.21.1" semantic-release "$@"
           }
 
           sr version
