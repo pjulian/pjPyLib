@@ -35,8 +35,8 @@ jobs:
           GH_TOKEN: ${{ secrets.PAT_PJPYLIB }}
         run: | #shell
           sr() {
-            uvx --from="python-semantic-release@9.21.1" semantic-release "$@"
+            uvx --from="python-semantic-release@9.21.1" semantic-release -vvv "$@"
           }
 
-          sr version -vvv
-          sr publish -vvv
+          sr version
+          sr publish
