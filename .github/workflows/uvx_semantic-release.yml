@@ -24,6 +24,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          token: ${{ secrets.PAT_PJPYLIB }}
 
       - name: Set up uv and python
         uses: astral-sh/setup-uv@v6
