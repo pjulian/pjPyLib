@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.1.1 (2025-11-06)
+
+### Bug Fixes
+
+- Automate new release creation.
+  ([`f6d51e8`](https://github.com/pjulian/pjPyLib/commit/f6d51e83b7ba4c09484a1d21c7cb96a814054de7))
+
+
 ## v0.1.0 (2025-11-06)
 
 ### Features
