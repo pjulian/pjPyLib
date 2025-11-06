@@ -17,7 +17,6 @@ commit_parser = "conventional"
 version_toml = ["pyproject.toml:project.version"]
 allow_zero_version = true
 tag_format = "{version}"
-force_patch_release = true
 
 [tool.semantic_release.changelog.default_templates]
 changelog_file = "CHANGELOG.md"
