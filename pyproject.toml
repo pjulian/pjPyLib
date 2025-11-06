@@ -19,5 +19,18 @@ allow_zero_version = true
 tag_format = "{version}"
 patch_without_tag = true
 
+[tool.semantic_release.commit_parser_options]
+# Override or add release rules
+# Example: Make 'docs' commits trigger a patch release
+rules = [
+    {"type": "feat", "release": "minor"},
+    {"type": "fix", "release": "patch"},
+    {"type": "docs", "release": "patch"}, # Custom rule for docs
+    {"type": "perf", "release": "patch"},
+    {"breaking_change": true, "release": "major"},
+    {"scope": "no-release", "release": "patch"}, # Example: commits with scope "no-release" will not trigger a release
+]
+
+
 [tool.semantic_release.changelog.default_templates]
 changelog_file = "CHANGELOG.md"
