@@ -1,6 +1,22 @@
 # CHANGELOG
 
 
+## v0.1.3 (2025-11-07)
+
+### Bug Fixes
+
+- **release**: Update default_level_bump value.
+  ([`666c5b0`](https://github.com/pjulian/pjPyLib/commit/666c5b040673f172384c238abc4628b5029df538))
+
+### Chores
+
+- Cleanup..
+  ([`8cfed33`](https://github.com/pjulian/pjPyLib/commit/8cfed3343ea396b3929838b92d21e026d4831c40))
+
+- Cleanup..
+  ([`2ad045e`](https://github.com/pjulian/pjPyLib/commit/2ad045eee3c99ad9fc9cc3c96574c17ebe712d93))
+
+
 ## v0.1.2 (2025-11-06)
 
 ### Bug Fixes
