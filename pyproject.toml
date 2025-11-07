@@ -9,7 +9,7 @@ requires-python = ">=3.9"
 
 [dependency-groups]
 dev = [
-  "python-semantic-release>=9.21.1",
+  "python-semantic-release>=10.4.1",
 ]
 
 [tool.semantic_release]
@@ -20,7 +20,7 @@ tag_format = "{version}"
 
 [tool.semantic_release.commit_parser_options]
 # Bug Report -> https://github.com/python-semantic-release/python-semantic-release/issues/1293
-# default_level_bump = "patch"
+default_level_bump = "patch"
 allowed_tags = [
     "build",
     "chore",
