@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.2.0 (2025-11-07)
+
+### Refactoring
+
+- **release**: Refactor semantic_release commit parser allowed, minor and patch tags.
+  ([`94655a1`](https://github.com/pjulian/pjPyLib/commit/94655a1d59ced3fd3fa3ab9ee2865b9c072bd033))
+
+
 ## v0.1.4 (2025-11-07)
 
 ### Chores
