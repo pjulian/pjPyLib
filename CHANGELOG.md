@@ -1,6 +1,14 @@
 # CHANGELOG
 
 
+## v0.1.4 (2025-11-07)
+
+### Chores
+
+- **release**: Configure semantic_release commit parser allowed, minor and patch tags.
+  ([`8549c80`](https://github.com/pjulian/pjPyLib/commit/8549c8088e53801b0e92a1e151161b7408004bb8))
+
+
 ## v0.1.3 (2025-11-07)
 
 ### Bug Fixes
