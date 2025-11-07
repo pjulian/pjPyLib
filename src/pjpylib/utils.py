@@ -1,4 +1,4 @@
-"""pjPyLib Utilities."""
+"""pjPyLib Utils."""
 
 import hashlib
 import uuid
