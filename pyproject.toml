@@ -20,7 +20,7 @@ tag_format = "{version}"
 
 [tool.semantic_release.commit_parser_options]
 # Bug Report -> https://github.com/python-semantic-release/python-semantic-release/issues/1293
-default_level_bump = "patch"
+# default_level_bump = "patch"
 allowed_tags = [
     "build",
     "chore",
