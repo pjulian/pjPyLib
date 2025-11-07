@@ -33,8 +33,19 @@ allowed_tags = [
     "refactor",
     "test"
 ]
-minor_tags = ["feat", "refactor"]
-patch_tags = ["build", "chore", "ci", "docs", "fix", "perf", "style"]
+minor_tags = [
+    "feat",
+    "refactor"
+]
+patch_tags = [
+    "build",
+    "chore",
+    "ci",
+    "docs",
+    "fix",
+    "perf",
+    "style"
+]
 
 [tool.semantic_release.changelog.default_templates]
 changelog_file = "CHANGELOG.md"
