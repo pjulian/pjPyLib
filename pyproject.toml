@@ -19,7 +19,7 @@ allow_zero_version = true
 tag_format = "{version}"
 
 [tool.semantic_release.commit_parser_options]
-default_level_bump = "PATCH"
+default_level_bump = "patch"
 
 [tool.semantic_release.changelog.default_templates]
 changelog_file = "CHANGELOG.md"
