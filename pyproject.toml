@@ -17,11 +17,24 @@ commit_parser = "conventional"
 version_toml = ["pyproject.toml:project.version"]
 allow_zero_version = true
 tag_format = "{version}"
-patch_without_tag = true
 
 [tool.semantic_release.commit_parser_options]
 # Bug Report -> https://github.com/python-semantic-release/python-semantic-release/issues/1293
-default_level_bump = "patch"
+# default_level_bump = "patch"
+allowed_tags = [
+    "build",
+    "chore",
+    "ci",
+    "docs",
+    "feat",
+    "fix",
+    "perf",
+    "style",
+    "refactor",
+    "test"
+]
+minor_tags = ["feat", "refactor"]
+patch_tags = ["build", "chore", "ci", "docs", "fix", "perf", "style"]
 
 [tool.semantic_release.changelog.default_templates]
 changelog_file = "CHANGELOG.md"
