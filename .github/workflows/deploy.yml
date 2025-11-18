@@ -36,7 +36,8 @@ jobs:
         run: |
           git fetch --tags
           LATEST_TAG=$(git tag | sort --version-sort | tail -n1)
-          echo "latest_tag=$LATEST_TAG" >> $GITHUB_OUTPUT
+          # echo "latest_tag=$LATEST_TAG" >> $GITHUB_OUTPUT
+          echo "latest_tag=$LATEST_TAG"
 
       # - name: Build docker image
       #   run:
