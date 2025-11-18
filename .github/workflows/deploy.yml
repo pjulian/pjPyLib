@@ -24,8 +24,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    container: # Specifies the Docker image to use for this job
-      image: docker:latest # Replace with your desired image and tag
+    # container: # Specifies the Docker image to use for this job
+    #   image: docker:latest # Replace with your desired image and tag
 
     steps:
       - uses: actions/checkout@v4
@@ -41,6 +41,21 @@ jobs:
           # echo "latest_tag=$LATEST_TAG" >> $GITHUB_OUTPUT
           echo "latest_tag=$LATEST_TAG"
 
-      - name: Build docker image
-        run:
-          docker build -t pjpylib_stg:latest -t pjpylib_stg:$LATEST_TAG .
+      # - name: Build docker image
+      #   run:
+      #     docker build -t pjpylib_stg:latest -t pjpylib_stg:$LATEST_TAG .
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3 # Set up Buildx for improved Docker builds
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: . # The build context (current directory of the repository)
+          file: ./Dockerfile # Path to your Dockerfile
+          push: false # Set to true to push to a registry (e.g., Docker Hub, GHCR)
+          tags: |
+            pjpylib_stg:latest # Define image tags (e.g., your-username/my-image:latest)
+            pjpylib_stg:$LATEST_TAG
+          # Add other options like build-args, target, etc. as needed
+Ex
