@@ -54,7 +54,7 @@ jobs:
           context: . # The build context (current directory of the repository)
           file: ./Dockerfile # Path to your Dockerfile
           push: false # Set to true to push to a registry (e.g., Docker Hub, GHCR)
-          tags: |
-            pjpylib_stg:latest # Define image tags (e.g., your-username/my-image:latest)
+          tags: | # Define image tags (e.g., your-username/my-image:latest)
+            pjpylib_stg:latest
             pjpylib_stg:$LATEST_TAG
           # Add other options like build-args, target, etc. as needed
