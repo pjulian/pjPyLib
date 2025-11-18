@@ -23,7 +23,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: docker
 
     steps:
       - uses: actions/checkout@v4
@@ -39,6 +39,6 @@ jobs:
           # echo "latest_tag=$LATEST_TAG" >> $GITHUB_OUTPUT
           echo "latest_tag=$LATEST_TAG"
 
-      # - name: Build docker image
-      #   run:
-      #     sudo docker build -t pjpylib_stg:latest -t pjpylib_stg:$LATEST_TAG .
+      - name: Build docker image
+        run:
+          docker build -t pjpylib_stg:latest -t pjpylib_stg:$LATEST_TAG .
