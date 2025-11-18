@@ -61,6 +61,6 @@ jobs:
           file: ./Dockerfile # Path to your Dockerfile
           push: false # Set to true to push to a registry (e.g., Docker Hub, GHCR)
           tags: | # Define image tags (e.g., your-username/my-image:latest)
-            pjpylib_stg:latest
-            pjpylib_stg:${{ steps.vars.outputs.latest_tag }}
+            pjpylib-stg:latest
+            pjpylib-stg:${{ steps.vars.outputs.latest_tag }}
           # Add other options like build-args, target, etc. as needed
