@@ -23,7 +23,9 @@ on:
 
 jobs:
   deploy:
-    runs-on: docker
+    runs-on: ubuntu-latest
+    container: # Specifies the Docker image to use for this job
+      image: docker:latest # Replace with your desired image and tag
 
     steps:
       - uses: actions/checkout@v4
