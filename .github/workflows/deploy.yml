@@ -38,8 +38,14 @@ jobs:
         run: |
           git fetch --tags
           LATEST_TAG=$(git tag | sort --version-sort | tail -n1)
-          # echo "latest_tag=$LATEST_TAG" >> $GITHUB_OUTPUT
-          echo "latest_tag=$LATEST_TAG"
+          echo "latest_tag=$LATEST_TAG" >> $GITHUB_OUTPUT
+
+      - name: Check output
+        env:
+          RELEASE_VERSION: ${{ steps.vars.outputs.latest_tag }}
+        run: |
+          echo $RELEASE_VERSION
+          echo ${{ steps.vars.outputs.latest_tag }}
 
       # - name: Build docker image
       #   run:
@@ -56,5 +62,5 @@ jobs:
           push: false # Set to true to push to a registry (e.g., Docker Hub, GHCR)
           tags: | # Define image tags (e.g., your-username/my-image:latest)
             pjpylib_stg:latest
-            pjpylib_stg:${{ LATEST_TAG }}
+            pjpylib_stg:${{ steps.vars.outputs.latest_tag }}
           # Add other options like build-args, target, etc. as needed
