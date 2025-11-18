@@ -31,12 +31,12 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.PAT_PJPYLIB }}
 
-    - name: Get latest tag
-      # id: get_latest_tag
-      run: |
-        git fetch --tags
-        LATEST_TAG=$(git tag | sort --version-sort | tail -n1)
-        echo "latest_tag=$LATEST_TAG" >> $GITHUB_OUTPUT
+      - name: Get latest tag
+        # id: get_latest_tag
+        run: |
+          git fetch --tags
+          LATEST_TAG=$(git tag | sort --version-sort | tail -n1)
+          echo "latest_tag=$LATEST_TAG" >> $GITHUB_OUTPUT
 
       # - name: Build docker image
       #   run:
